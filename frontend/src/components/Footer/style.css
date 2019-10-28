@@ -1,0 +1,37 @@
+.Footer-body {
+    margin-bottom: 1%;
+}
+
+.Footer-columns {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-left: 5%;
+}
+
+.Footer-lines {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10%;
+    margin-top: 5%;
+    width: 30%;
+    align-items: flex-start;
+}
+
+.title {
+    font-family: monospace;
+    color: rgb(172, 172, 172);
+}
+
+.detail {
+    font-size: 14px;
+    margin-top: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.GitHub-icon {
+    height: 30px;
+    width: 30px;
+}

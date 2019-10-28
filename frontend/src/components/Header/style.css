@@ -1,0 +1,64 @@
+.Header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    padding: 25px 0;
+    z-index: 999;
+    -webkit-transition: .8s cubic-bezier(.2, .8, .2, 1);
+    transition: .8s cubic-bezier(.2, .8, .2, 1);
+    background: rgba(33, 33, 33, 1);
+    /*border-bottom: .5px solid rgba(228, 228, 228, 1);*/
+}
+
+.Header-Body {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.Header-Middle {
+    width: 50%;
+}
+
+.Header-Right {
+    width: 40%;
+    display: flex;
+}
+
+.Header-Navigator {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    text-align: right;
+    width: 90%;
+    height: 100%;
+    align-items: center;
+    margin-right: 10%;
+}
+
+.Header-Link {
+    display: flex;
+    font-weight: bolder;
+    width: 30%;
+    height: 150%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    -webkit-transition: -webkit-transform .5s;
+    transition: transform .5s;
+}
+
+.Header-Link:link {
+    text-decoration: none
+}
+
+.Header-Link:hover {
+    color: whitesmoke;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1) scaleX(1);
+    transition: .8s;
+    border-bottom: 1px solid;
+}

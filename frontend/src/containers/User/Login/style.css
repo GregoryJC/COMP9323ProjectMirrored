@@ -1,0 +1,69 @@
+.Login {
+    flex: 1;
+}
+
+.Login-Outside {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    height: 500px;
+    z-index: 2;
+}
+
+.Login-Card {
+    background-image: url("../../../assets/images/signin-desktop-illustration.jpg");
+    background-size: 100% 110%;
+    min-width: 600px;
+    height: 100%;
+    -webkit-box-shadow: #666 0px 0px 10px;
+    -moz-box-shadow: #666 0px 0px 10px;
+    box-shadow: #666 0px 0px 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Login-Container {
+    width: 80%;
+    text-align: center;
+}
+
+.demo-card-wide.mdl-card {
+    width: 100%;
+}
+.demo-card-wide > .mdl-card__title {
+    border-radius: 5px;
+    color: #ffffff;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(270deg, #28e0b0, #c328e0, #28a1e0, #e0286b)  center / cover;
+    background-size: 800% 800%;
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+    border-color: transparent;
+}
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.Home-Image {
+    transform: translate3d(0px, 0px, 0px);
+    width: 100%;
+    height: 100vh !important;
+    object-fit: cover;
+    z-index: 1;
+}

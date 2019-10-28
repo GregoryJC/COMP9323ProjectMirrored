@@ -5,9 +5,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.Customized-Link {
+  text-decoration: none;
+  color: black;
+}
+
+.Customized-Link:link {
+  text-decoration: none
+}
+
+.Customized-Link:hover {
+  color: black;
 }
