@@ -16,7 +16,7 @@ class PostCard extends Component {
                         <p>{this.props.post.abstract}</p>
                     </div>
                     <div style={{height: '300px', width: '300px'}}>
-                        <img src={require("../../assets/images/homepage_background4.jpg")}
+                        <img src={this.props.post.image}
                              alt="123"
                              style={{width: '100%', height: '100%', objectFit: 'cover'}}
                         />

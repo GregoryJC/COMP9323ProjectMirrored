@@ -24,7 +24,7 @@ const posts = {
             '\n' +
             '\n' +
             '6. Interface is better than Abstract class.',
-        image: '',
+        image: 'https://lingxu.s3-ap-southeast-2.amazonaws.com/u12.jpg',
         likes: 20,
         dislikes: 0,
         saves: 10,
@@ -54,7 +54,7 @@ const posts = {
             '\n' +
             '\n' +
             '6. Interface is better than Abstract class.',
-        image: '',
+        image: 'https://lingxu.s3-ap-southeast-2.amazonaws.com/u19.jpg',
         likes: 15,
         dislikes: 0,
         saves: 10,

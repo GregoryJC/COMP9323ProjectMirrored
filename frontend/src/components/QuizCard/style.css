@@ -1,0 +1,15 @@
+.Quiz-Card {
+    display: flex;
+    flex-direction: row;
+    height: 60%;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(221, 225, 252, 1);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.Quiz-Button {
+    background-color: rgba(254, 246, 139, 1);
+    border-radius: 10px;
+}

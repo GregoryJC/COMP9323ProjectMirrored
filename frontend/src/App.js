@@ -28,8 +28,10 @@ class App extends Component {
                         <Header/>
                         <div style={{backgroundColor: 'rgba(191, 191, 191, 1)'}}>
                             <Switch>
-                                <Route path='/login' exact component={Login}/>
                                 <Route path='/' exact component={Home}/>
+                                <Route path='/quizzes' exact component={Home}/>
+                                <Route path='/projects' exact component={Home}/>
+                                <Route path='/login' exact component={Login}/>
                                 <Route path='/register' exact component={Register}/>
                             </Switch>
                         </div>
