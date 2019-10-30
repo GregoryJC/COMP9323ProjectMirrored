@@ -28,3 +28,10 @@ code {
 .Customized-Link:hover {
   color: black;
 }
+
+.Main-Button {
+  height: 60px;
+  border-radius: 20px;
+  margin: 30px;
+  width: 90%;
+}

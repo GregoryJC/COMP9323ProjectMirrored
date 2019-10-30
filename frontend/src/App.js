@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop'
 import Header from './components/Header'
 import Footer from "./components/Footer"
 import Home from "./containers/Home"
+import Quiz from "./containers/Quiz"
 import './index.css'
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
@@ -33,6 +34,7 @@ class App extends Component {
                                 <Route path='/projects' exact component={Home}/>
                                 <Route path='/login' exact component={Login}/>
                                 <Route path='/register' exact component={Register}/>
+                                <Route path='/quizzes/:pk' exact component={Quiz}/>
                             </Switch>
                         </div>
                         <Footer/>

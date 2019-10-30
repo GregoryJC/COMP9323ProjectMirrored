@@ -7,6 +7,10 @@
     background-color: rgba(221, 225, 252, 1);
     border-radius: 10px;
     margin-bottom: 30px;
+    border: 1px solid #000;
+    -webkit-box-shadow: #666 0px 0px 10px;
+    -moz-box-shadow: #666 0px 0px 10px;
+    box-shadow: #666 0px 0px 10px;
 }
 
 .Quiz-Button {

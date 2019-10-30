@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom"
 import './style.css'
 import { Button } from "antd"
 
@@ -10,9 +11,9 @@ class QuizCard extends Component {
                     <h3>{this.props.quiz.title}</h3>
                     <p>Estimated time to finish: 20 minutes</p>
                 </div>
-                <div>
+                <Link to={'quizzes/1'}>
                     <Button className="Quiz-Button">Start Now</Button>
-                </div>
+                </Link>
             </div>
         )
     }

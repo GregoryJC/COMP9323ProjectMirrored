@@ -6,7 +6,7 @@ class GrowingPosts extends Component {
     render() {
         return (
             <div className="Home-Cards" style={{height: 'auto', fontWeight: 'bolder', alignItems: 'center'}}>
-                <Button type="danger" style={{height: '60px', borderRadius: '20px', margin: '30px', width: '90%'}}>
+                <Button type="danger" className="Main-Button">
                     <span style={{fontSize: '20px', fontWeight: 'bold'}}>Today's Top Growing Posts</span>
                 </Button>
                 <div style={{width: '90%'}}>
