@@ -21,5 +21,18 @@
 
 > **Quiz**
 >
-> - `GET` `/api/quiz/<int: id>/`  Retrieve a quiz
-> - `GET` `/api/quiz/`  Retrieve all quiz
+> - `GET` `/api/quiz/<int: id>/`  ***Retrieve a quiz***
+> - `GET` `/api/quiz/`  ***Retrieve all quiz***
+
+> **Top Post**
+>
+> - `GET` `/api/toppost/`  ***Retrieve top 10 posts***
+>
+> **Recommend**
+>
+> - `GET` `/api/recommend/`  ***Retrieve some recommended projects***
+
+> **Profile**
+>
+> *Outstanding...*
+
