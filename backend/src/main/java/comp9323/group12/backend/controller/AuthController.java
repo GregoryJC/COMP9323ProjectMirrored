@@ -1,15 +1,11 @@
 package comp9323.group12.backend.controller;
 
-import comp9323.group12.backend.beans.User;
+import comp9323.group12.backend.entities.User;
 import comp9323.group12.backend.mapper.UserMapper;
-import org.apache.ibatis.annotations.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -35,8 +31,6 @@ public class AuthController {
 
   @GetMapping("/auth/{uid}")
   public User getUser(@PathVariable("uid") Integer uid) {
-    System.out.println("at lease I entered");
-    System.out.println(uid);
     return userMapper.getUserByUid(uid);
   }
 

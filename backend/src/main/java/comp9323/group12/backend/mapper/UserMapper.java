@@ -1,6 +1,6 @@
 package comp9323.group12.backend.mapper;
 
-import comp9323.group12.backend.beans.User;
+import comp9323.group12.backend.entities.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

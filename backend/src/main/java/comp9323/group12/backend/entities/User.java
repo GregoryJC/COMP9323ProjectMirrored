@@ -1,4 +1,4 @@
-package comp9323.group12.backend.beans;
+package comp9323.group12.backend.entities;
 
 public class User {
 
