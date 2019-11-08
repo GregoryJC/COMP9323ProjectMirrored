@@ -1,6 +1,6 @@
 package comp9323.group12.backend.entities;
 
-public class User {
+public class AuthUser {
 
   private Integer uid;
   private String username;
@@ -55,5 +55,17 @@ public class User {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  @Override
+  public String toString() {
+    return "AuthUser{" +
+            "uid=" + uid +
+            ", username='" + username + '\'' +
+            ", password='" + password + '\'' +
+            ", skills='" + skills + '\'' +
+            ", interests='" + interests + '\'' +
+            ", email='" + email + '\'' +
+            '}';
   }
 }
