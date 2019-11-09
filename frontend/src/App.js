@@ -12,6 +12,7 @@ import './index.css'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { loginSuccess } from './containers/User/store/actions'
+import Post from "./containers/Post"
 
 class App extends Component {
     componentDidMount() {
@@ -37,6 +38,7 @@ class App extends Component {
                                 <Route path='/register' exact component={Register}/>
                                 <Route path="/userpage" exact component={UserPage}/>
                                 <Route path='/quizzes/:pk' exact component={Quiz}/>
+                                <Route path='/posts/:pk' exact component={Post}/>
                             </Switch>
                         </div>
                         <Footer/>

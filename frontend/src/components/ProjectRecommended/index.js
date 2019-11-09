@@ -5,7 +5,7 @@ class ProjectRecommended extends Component {
     render() {
         return (
             <div className="Home-Cards" style={{height: 'auto', marginTop: '50px', alignItems: 'center'}}>
-                <Button type="primary" className="Main-Button" style={{height: '90px'}}>
+                <Button type="primary" className="Main-Button" style={{height: '70px'}}>
                     <span style={{fontSize: '20px', fontWeight: 'bolder'}}>Project Recommended for you</span>
                 </Button>
 

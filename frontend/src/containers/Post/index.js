@@ -1,14 +1,34 @@
 import React, { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
-import file from '../../assets/z5147810.md'
+import file from '../../assets/20131228 Introduction to Clojure - Modern dialect of Lisp (Part 1).md'
+import GrowingPosts from "../../components/GrowingPosts"
 
 
 class Post extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            terms: null
+        }
+    }
+
+    componentDidMount() {
+        fetch(file).then((response) => response.text()).then((text) => {
+            this.setState({ terms: text })
+        })
+    }
+
     render() {
         return (
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <div style={{width: '90%', marginTop: '140px'}}>
-                    <ReactMarkdown source={file}/>
+                <div style={{width: '80%', margin: '140px', display: 'flex', flexDirection: 'row'}}>
+                    <div style={{width: '63%', backgroundColor: '#fff', padding: '40px'}}>
+                        <ReactMarkdown source={this.state.terms}/>
+                    </div>
+                    <div style={{width: '30%', marginLeft: '2%'}}>
+                        <GrowingPosts/>
+                    </div>
+
                 </div>
             </div>
         )
