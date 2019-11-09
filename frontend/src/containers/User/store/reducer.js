@@ -3,7 +3,7 @@ import { ERROR_MSG, LOGIN_SUCCESS, LOGOUT } from "./constants"
 const defaultState = {
     isAuth: false,
     errorMsg: '',
-    username: '',
+    nickname: '',
     email: '',
     jwt: '',
     // itemInCart: 0,
@@ -19,7 +19,8 @@ export default (state = defaultState, action) => {
                 ...action.payload,
                 isAuth: true,
                 errorMsg: '',
-                username: action.payload.username,
+                email: action.payload.email,
+                nickname: action.payload.nickname,
                 jwt: action.payload.jwt,
                 cookieFinish:true
             }

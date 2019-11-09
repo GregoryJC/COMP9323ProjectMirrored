@@ -8,6 +8,7 @@ import ProjectRecommended from "../../components/ProjectRecommended"
 import HomePageLeft from "../../components/HomePageLeft"
 import QuizPageLeft from '../../components/QuizPageLeft'
 import ProjectPageLeft from "../../components/ProjectPageLeft"
+import Post from "../Post"
 
 import './style.css'
 import { Button } from "antd"
@@ -37,6 +38,7 @@ class Home extends Component {
                             <Route path='/quizzes' exact component={QuizPageLeft}/>
                             <Route path='/' exact component={HomePageLeft}/>
                             <Route path='/projects' exact component={ProjectPageLeft}/>
+                            <Route path='/posts/:pk' exact component={Post}/>
                         </Switch>
                     </div>
                     <div style={{

@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
 import { userLogin } from "../store/actions"
-
 import { Form, Icon, Input } from 'antd'
 import './style.css'
+
+
 
 class Login extends Component {
     constructor(props) {

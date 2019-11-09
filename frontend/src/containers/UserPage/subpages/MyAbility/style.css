@@ -1,0 +1,8 @@
+.Ability-Card {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgba(197,197,197,1);
+    border-radius: 5px;
+}

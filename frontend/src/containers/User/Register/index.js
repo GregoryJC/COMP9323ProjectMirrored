@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import { Form, Icon, Input } from "antd"
+import { Form, Icon, Input, Popover } from "antd"
 import { userRegister } from "../store/actions"
 import { connect } from "react-redux"
 
@@ -32,9 +32,13 @@ class Register extends Component {
     }
 
     render() {
+        const passwordHint = "Password must be at least eight characters long and contain at least one lowercase letter, one uppercase letter, one number."
+        const emailHint = "Available email address, for example: abc@gmail.com"
+        const nameHint = "Your display name on website"
+        const confirmPasswordHint = "Enter password again, must be the same as password"
         return (
             <div className="Login">
-                {this.props.user.isAuth ? <Redirect to='/'></Redirect> : null}
+                {this.props.user.isAuth ? <Redirect to='/'/> : null}
                 <div className="Image-Div">
                     <img src={require("../../../assets/images/login-background.jpg")} alt="background"
                          className="Home-Image"/>
@@ -47,14 +51,18 @@ class Register extends Component {
                             </div>
                             <Form>
                                 <Form.Item>
-                                    <Input prefix={<Icon type="mail" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                    <Input prefix={<Popover placement="topLeft" content={emailHint}
+                                                            title={"Email"}><Icon type="mail"
+                                                                                  style={{color: 'rgba(0,0,0,.25)'}}/></Popover>}
                                            placeholder="Email"
                                            onChange={value => {
                                                this.handleChange('email', value)
                                            }}/>
                                 </Form.Item>
                                 <Form.Item>
-                                    <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                    <Input prefix={<Popover placement="topLeft" content={nameHint}
+                                                            title={"Username"}><Icon type="user"
+                                                                                     style={{color: 'rgba(0,0,0,.25)'}}/></Popover>}
                                            placeholder="Username"
                                            onChange={value => {
                                                this.handleChange('username', value)
@@ -62,7 +70,10 @@ class Register extends Component {
                                 </Form.Item>
                                 <Form.Item>
                                     <Input
-                                        prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                        style={{width: '100%'}}
+                                        prefix={<Popover placement="topLeft" content={passwordHint}
+                                                         title={"Password"}><Icon type="lock"
+                                                                                  style={{color: 'rgba(0,0,0,.25)'}}/></Popover>}
                                         type="password"
                                         placeholder="Password"
                                         onChange={value => {
@@ -71,7 +82,9 @@ class Register extends Component {
                                 </Form.Item>
                                 <Form.Item>
                                     <Input
-                                        prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                        prefix={<Popover placement="topLeft" content={confirmPasswordHint}
+                                                         title={"Confirm Password"}><Icon type="lock"
+                                                                                          style={{color: 'rgba(0,0,0,.25)'}}/></Popover>}
                                         type="password"
                                         placeholder="Confirm Password"
                                         onChange={value => {
@@ -87,7 +100,7 @@ class Register extends Component {
                                 </div>
                                 :
                                 <div style={{height: '6%'}}>
-                                    <br></br>
+                                    <br/>
                                 </div>
                             }
                             <div className="demo-card-wide mdl-card mdl-shadow--2dp">

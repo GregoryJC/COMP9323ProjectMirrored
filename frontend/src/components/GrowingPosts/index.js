@@ -12,7 +12,7 @@ class GrowingPosts extends Component {
                 <div style={{width: '90%'}}>
                     <p>
                         <span style={{fontSize: '24px', color: 'red'}}>1 &nbsp;</span>
-                        <Link to='/'
+                        <Link to='/posts/1'
                               className="Customized-Link">10 Java Coding tips for beginners</Link>
                     </p>
                     <p style={{marginTop: '30px'}}>

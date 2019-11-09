@@ -1,0 +1,25 @@
+/*.accountList {*/
+/*    height: 100%;*/
+/*    width: 40%;*/
+/*    font-size: 40px;*/
+/*}*/
+
+.Profile-left {
+    width: 20%;
+    height: 100%;
+    border-right: .5px solid rgba(228, 228, 228, 1);
+}
+
+.Profile-right {
+
+}
+
+.accountList:hover{
+    color: #888888;
+    font-weight: bold;
+    transition: .5s;
+}
+
+.cursor{
+    cursor: pointer;
+}
