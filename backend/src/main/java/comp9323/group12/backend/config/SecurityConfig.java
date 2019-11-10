@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
               .logoutSuccessHandler(logoutSuccessHandler)
             .and()
             .authorizeRequests()
-              .antMatchers( "/api/unauthorized", "/api/signup", "/api/login").permitAll()
+              .antMatchers( "/api/unauthorized", "/api/signup", "/api/login", "/api/toppost").permitAll()
               .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .anyRequest().authenticated()
             .and().cors(Customizer.withDefaults());
@@ -61,11 +61,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     CorsConfiguration configuration = new CorsConfiguration();
     configuration.setAllowedOrigins(Arrays.asList("*"));
     configuration.setAllowedMethods(Arrays.asList("GET","POST", "OPTIONS", "PUT", "DELETE"));
-    configuration.setAllowedHeaders(Arrays.asList("X-Requested-With", "Origin", "Content-Type", "Accept",
-            "Authorization", "Access-Control-Allow-Credentials", "Access-Control-Allow-Headers", "Access-Control-Allow-Methods",
-            "Access-Control-Allow-Origin", "Access-Control-Expose-Headers", "Access-Control-Max-Age",
-            "Access-Control-Request-Headers", "Access-Control-Request-Method", "Age", "Allow", "Alternates",
-            "Content-Range", "Content-Disposition", "Content-Description"));
+//    configuration.setAllowedHeaders(Arrays.asList("X-Requested-With", "Origin", "Content-Type", "Accept",
+//            "Authorization", "Access-Control-Allow-Credentials", "Access-Control-Allow-Headers", "Access-Control-Allow-Methods",
+//            "Access-Control-Allow-Origin", "Access-Control-Expose-Headers", "Access-Control-Max-Age",
+//            "Access-Control-Request-Headers", "Access-Control-Request-Method", "Age", "Allow", "Alternates",
+//            "Content-Range", "Content-Disposition", "Content-Description"));
+    configuration.setAllowedHeaders(Arrays.asList("*"));
     configuration.setAllowCredentials(true);
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     source.registerCorsConfiguration("/**", configuration);
