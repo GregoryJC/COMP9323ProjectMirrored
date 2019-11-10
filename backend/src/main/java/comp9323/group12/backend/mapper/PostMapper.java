@@ -14,6 +14,9 @@ public interface PostMapper {
   @Select("SELECT * FROM post WHERE id = #{id}")
   Post retrievePost(Integer id);
 
+  @Select("SELECT * FROM post WHERE author = #{username}")
+  List<Post> retrievePostByUsername(String username);
+
   @Select("SELECT * FROM post ORDER BY view DESC LIMIT 10")
   List<Post> retrieveTopTenPosts();
 

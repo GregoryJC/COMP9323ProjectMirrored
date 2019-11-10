@@ -1,5 +1,7 @@
 package comp9323.group12.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonRawValue;
+
 import java.util.Date;
 
 public class Project {
