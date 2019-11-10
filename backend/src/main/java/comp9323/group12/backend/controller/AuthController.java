@@ -1,6 +1,5 @@
 package comp9323.group12.backend.controller;
 
-import com.sun.deploy.net.HttpResponse;
 import comp9323.group12.backend.entities.AuthUser;
 import comp9323.group12.backend.mapper.AuthUserMapper;
 import comp9323.group12.backend.support.SimpleResponse;
