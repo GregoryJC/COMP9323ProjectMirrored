@@ -50,7 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
               .logoutSuccessHandler(logoutSuccessHandler)
             .and()
             .authorizeRequests()
-              .antMatchers( "/api/unauthorized", "/api/signup", "/api/login", "/api/toppost").permitAll()
+              .antMatchers( "/api/unauthorized", "/api/signup", "/api/login", "/api/toppost", "/api/recommend").permitAll()
+              .antMatchers(HttpMethod.GET, "/api/post/**", "/api/project/*").permitAll()
               .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .anyRequest().authenticated()
             .and().cors(Customizer.withDefaults());

@@ -18,6 +18,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class ProjectController {
 
   @Autowired

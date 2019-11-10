@@ -10,6 +10,7 @@ import comp9323.group12.backend.support.QuizResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataAccessException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -18,6 +19,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class QuizController {
 
   @Value("${quiz.mark.unit}")
@@ -71,7 +73,6 @@ public class QuizController {
     }
     return new QuizResultResponse(mark, "fail");
   }
-
 
 }
 

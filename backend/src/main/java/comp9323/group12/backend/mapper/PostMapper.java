@@ -24,7 +24,7 @@ public interface PostMapper {
   int increaseViewByOne(Integer id);
 
   @Options(useGeneratedKeys = true, keyProperty = "id")
-  @Insert("INSERT INTO post(content, created_time, author) VALUES (#{content}, #{createdTime}, #{author})")
+  @Insert("INSERT INTO post(title, content, created_time, author) VALUES (#{title}, #{content}, #{createdTime}, #{author})")
   int insert(Post post);
 
 

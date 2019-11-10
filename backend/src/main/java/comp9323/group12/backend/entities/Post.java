@@ -13,6 +13,8 @@ public class Post {
 
     private String content;
 
+    private String title;
+
     public Integer getId() {
         return id;
     }
@@ -51,5 +53,13 @@ public class Post {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

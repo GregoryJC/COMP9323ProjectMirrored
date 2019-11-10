@@ -7,15 +7,15 @@ import comp9323.group12.backend.mapper.AuthUserMapper;
 import comp9323.group12.backend.mapper.CommentMapper;
 import comp9323.group12.backend.mapper.PostMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class ProfileController {
 
   @Autowired

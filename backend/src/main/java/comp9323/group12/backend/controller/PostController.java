@@ -3,6 +3,7 @@ package comp9323.group12.backend.controller;
 import comp9323.group12.backend.entities.Post;
 import comp9323.group12.backend.mapper.PostMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -10,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class PostController {
 
   @Autowired
@@ -40,5 +42,4 @@ public class PostController {
     postMapper.insert(post);
     return post;
   }
-
 }
