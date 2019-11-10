@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop'
 import Header from './components/Header'
 import Footer from "./components/Footer"
 import Home from "./containers/Home"
+import NewPost from "./containers/NewPost"
 import Quiz from "./containers/Quiz"
 import UserPage from "./containers/UserPage"
 import './index.css'
@@ -36,6 +37,7 @@ class App extends Component {
                                 <Route path='/projects' exact component={Home}/>
                                 <Route path='/login' exact component={Login}/>
                                 <Route path='/register' exact component={Register}/>
+                                <Route path='/newpost' exact component={NewPost}/>
                                 <Route path="/userpage" exact component={UserPage}/>
                                 <Route path='/quizzes/:pk' exact component={Quiz}/>
                                 <Route path='/posts/:pk' exact component={Post}/>
