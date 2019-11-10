@@ -4,6 +4,7 @@ package comp9323.group12.backend.config;
 import comp9323.group12.backend.component.auth.RestAuthenticationFailureHandler;
 import comp9323.group12.backend.component.auth.RestAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -39,7 +40,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
               .logoutSuccessHandler(logoutSuccessHandler)
             .and()
             .authorizeRequests()
-              .antMatchers( "/api/unauthorized", "/api/signup").permitAll()
+              .antMatchers( "/api/unauthorized", "/api/signup", "/api/login").permitAll()
+              .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .anyRequest().authenticated();
   }
 }
