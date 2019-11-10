@@ -4,16 +4,20 @@ import comp9323.group12.backend.entities.AuthUser;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.dao.DataIntegrityViolationException;
 
 @Mapper
 public interface AuthUserMapper {
 
   @Select("select * from user where uid = #{uid}")
-  public AuthUser getUserByUid(Integer uid);
+  AuthUser getUserByUid(Integer uid);
 
   @Select("SELECT * FROM user WHERE username = #{username}")
-  public AuthUser findUserByUsername(String username);
+  AuthUser findUserByUsername(String username);
+
+  @Select("SELECT username, email, avatar_url FROM user WHERE username = #{username}")
+  AuthUser findUserByUsernameIgnoreSensitiveInfo(String username);
 
   @Insert("insert into user(username, password) VALUES (#{username}, #{password})")
-  public int insertUser(AuthUser authUser);
+  int insertUser(String username, String password) throws DataIntegrityViolationException;
 }

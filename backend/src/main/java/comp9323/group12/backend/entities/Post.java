@@ -1,51 +1,55 @@
 package comp9323.group12.backend.entities;
 
-
 import java.util.Date;
 
 public class Post {
+    private Integer id;
 
-  private Integer id;
-  private String content;
-  private Date created_time;
-  private Integer author;
-  private Integer view;
+    private Date createdTime;
 
-  public Integer getId() {
-    return id;
-  }
+    private String author;
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
+    private Integer view;
 
-  public String getContent() {
-    return content;
-  }
+    private String content;
 
-  public void setContent(String content) {
-    this.content = content == null ? null : content.trim();
-  }
+    public Integer getId() {
+        return id;
+    }
 
-  public Date getCreated_time() {
-    return created_time;
-  }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-  public void setCreated_time(Date created_time) {
-    this.created_time = created_time;
-  }
+    public Date getCreatedTime() {
+        return createdTime;
+    }
 
-  public Integer getAuthor() {
-    return author;
-  }
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
+    }
 
-  public void setAuthor(Integer author) {
-    this.author = author;
-  }
+    public String getAuthor() {
+        return author;
+    }
 
-  public Integer getView() { return view; }
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
-  public void setView(Integer view) {
-    this.view = view;
-  }
+    public Integer getView() {
+        return view;
+    }
+
+    public void setView(Integer view) {
+        this.view = view;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
 }

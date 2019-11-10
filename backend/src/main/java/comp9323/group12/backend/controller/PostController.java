@@ -5,6 +5,8 @@ import comp9323.group12.backend.mapper.PostMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -30,7 +32,11 @@ public class PostController {
   }
 
   @PostMapping("/api/post")
-  public Post createNewPost(@RequestBody Post post) {
+  public Post createNewPost(@RequestBody Post post, Principal principal) {
+    post.setCreatedTime(new Date());
+    post.setView(0);
+    post.setAuthor(principal.getName());
+
     postMapper.insert(post);
     return post;
   }

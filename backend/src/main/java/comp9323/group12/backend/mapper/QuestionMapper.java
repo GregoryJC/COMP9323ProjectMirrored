@@ -9,6 +9,6 @@ import java.util.List;
 @Mapper
 public interface QuestionMapper {
 
-  @Select("SELECT * FROM question WHERE belong_quiz = #{belong_quiz}")
+  @Select("SELECT id, content, options FROM question WHERE belong_quiz = #{belong_quiz}")
   List<Question> retrieveAllQuestionByQuizId(Integer belong_quiz);
 }

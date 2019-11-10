@@ -1,71 +1,53 @@
 package comp9323.group12.backend.entities;
 
 public class AuthUser {
+    private Integer uid;
 
-  private Integer uid;
-  private String username;
-  private String password;
-  private String skills;
-  private String interests;
-  private String email;
+    private String username;
 
-  public Integer getUid() {
-    return uid;
-  }
+    private String password;
 
-  public void setUid(Integer uid) {
-    this.uid = uid;
-  }
+    private String email;
 
-  public String getUsername() {
-    return username;
-  }
+    private String avatarUrl;
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
+    public Integer getUid() {
+        return uid;
+    }
 
-  public String getPassword() {
-    return password;
-  }
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+    public String getUsername() {
+        return username;
+    }
 
-  public String getSkills() {
-    return skills;
-  }
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
 
-  public void setSkills(String skills) {
-    this.skills = skills;
-  }
+    public String getPassword() {
+        return password;
+    }
 
-  public String getInterests() {
-    return interests;
-  }
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
 
-  public void setInterests(String interests) {
-    this.interests = interests;
-  }
+    public String getEmail() {
+        return email;
+    }
 
-  public String getEmail() {
-    return email;
-  }
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
 
-  @Override
-  public String toString() {
-    return "AuthUser{" +
-            "uid=" + uid +
-            ", username='" + username + '\'' +
-            ", password='" + password + '\'' +
-            ", skills='" + skills + '\'' +
-            ", interests='" + interests + '\'' +
-            ", email='" + email + '\'' +
-            '}';
-  }
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl == null ? null : avatarUrl.trim();
+    }
 }
