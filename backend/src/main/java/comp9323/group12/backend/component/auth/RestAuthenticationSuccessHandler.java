@@ -1,6 +1,7 @@
 package comp9323.group12.backend.component.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import comp9323.group12.backend.support.AuthResponse;
 import comp9323.group12.backend.support.SimpleResponse;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -16,7 +17,7 @@ import java.io.PrintWriter;
 public class RestAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
   @Override
   public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
-    SimpleResponse response = new SimpleResponse(authentication.getPrincipal());
+    AuthResponse response = new AuthResponse(authentication.getPrincipal(), httpServletRequest.getSession().getId());
     httpServletResponse.setStatus(HttpServletResponse.SC_OK);
     httpServletResponse.setContentType("application/json;charset=utf-8");
     PrintWriter out = httpServletResponse.getWriter();
