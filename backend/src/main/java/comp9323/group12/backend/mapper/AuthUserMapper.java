@@ -4,6 +4,7 @@ import comp9323.group12.backend.entities.AuthUser;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.dao.DataIntegrityViolationException;
 
 @Mapper
 public interface AuthUserMapper {
@@ -15,5 +16,5 @@ public interface AuthUserMapper {
   public AuthUser findUserByUsername(String username);
 
   @Insert("insert into user(username, password) VALUES (#{username}, #{password})")
-  public int insertUser(AuthUser authUser);
+  public int insertUser(String username, String password) throws DataIntegrityViolationException;
 }

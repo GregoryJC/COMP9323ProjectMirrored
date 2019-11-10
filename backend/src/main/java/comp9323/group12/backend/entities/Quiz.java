@@ -5,6 +5,8 @@ public class Quiz {
 
     private String name;
 
+    private String relatedSkill;
+
     public Integer getId() {
         return id;
     }
@@ -19,5 +21,13 @@ public class Quiz {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getRelatedSkill() {
+        return relatedSkill;
+    }
+
+    public void setRelatedSkill(String relatedSkill) {
+        this.relatedSkill = relatedSkill == null ? null : relatedSkill.trim();
     }
 }

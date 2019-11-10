@@ -15,6 +15,6 @@ public interface CommentMapper {
   List<Comment> retrieveCommentsByPostId(Integer postId);
 
   @Options(useGeneratedKeys = true, keyProperty = "id")
-  @Insert("INSERT INTO comment(content, created_time, creator, related_post) VALUES (#{content}, #{created_time}, #{creator}, #{related_post})")
+  @Insert("INSERT INTO comment(content, created_time, creator, related_post) VALUES (#{content}, #{createdTime}, #{creator}, #{relatedPost})")
   int insert(Comment comment);
 }

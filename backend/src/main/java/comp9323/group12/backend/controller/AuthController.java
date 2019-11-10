@@ -1,16 +1,19 @@
 package comp9323.group12.backend.controller;
 
+import com.sun.deploy.net.HttpResponse;
 import comp9323.group12.backend.entities.AuthUser;
 import comp9323.group12.backend.mapper.AuthUserMapper;
 import comp9323.group12.backend.support.SimpleResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.web.authentication.Http403ForbiddenEntryPoint;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
@@ -18,15 +21,37 @@ import java.util.Map;
 public class AuthController {
 
   @Autowired
-  JdbcTemplate jdbcTemplate;
+  private JdbcTemplate jdbcTemplate;
 
   @Autowired
-  AuthUserMapper authUserMapper;
+  private AuthUserMapper authUserMapper;
 
-//  @RequestMapping(value="/api/unauthorized")
+  @RequestMapping(value="/api/unauthorized")
   @ResponseStatus(HttpStatus.UNAUTHORIZED)
   public SimpleResponse loginFailure() {
     return new SimpleResponse("Authentication required");
+  }
+
+  @PostMapping("/api/signup")
+  public SimpleResponse signup(@RequestParam("username") String username, @RequestParam("password") String password,
+                               HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
+    try {
+      authUserMapper.insertUser(username, password);
+    } catch (DataIntegrityViolationException e) {
+      System.out.println(e.getMessage());
+      response.setStatus(HttpServletResponse.SC_CONFLICT);
+      return new SimpleResponse("The user already exists");
+    }
+
+//    UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);
+//    request.getSession();
+//    authRequest.setDetails(new WebAuthenticationDetails(request));
+//    Authentication authenticatedUser = authenticationManager.authenticate(authRequest);
+//
+//    SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
+//
+    response.setStatus(HttpServletResponse.SC_OK);
+    return new SimpleResponse("sign up successfully");
   }
 
   @GetMapping("/auth/{uid}")

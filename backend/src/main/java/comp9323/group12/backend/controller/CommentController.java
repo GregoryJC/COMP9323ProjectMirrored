@@ -5,6 +5,7 @@ import comp9323.group12.backend.mapper.CommentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Date;
 import java.util.List;
 
@@ -20,9 +21,12 @@ public class CommentController {
   }
 
   @PostMapping("/api/post/{postId}/comment")
-  public Comment leaveComment(@PathVariable("postId") Integer postId, @RequestBody Comment comment) {
+  public Comment leaveComment(@PathVariable("postId") Integer postId, @RequestBody Comment comment,
+                              Principal principal) {
     comment.setRelatedPost(postId);
     comment.setCreatedTime(new Date());
+    comment.setCreator(principal.getName());
+
     commentMapper.insert(comment);
     return comment;
   }
