@@ -15,7 +15,6 @@ public class Question {
 
     private Integer belongQuiz;
 
-    @JsonRawValue
     private String options;
 
     public Integer getId() {
