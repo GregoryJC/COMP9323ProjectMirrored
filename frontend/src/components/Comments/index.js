@@ -9,37 +9,37 @@ class Comments extends Component {
     constructor(props) {
         super(props)
         this.state = {reviews: []}
-        this.roomId = this.props.roomId
+        this.postId = this.props.postId
         this.reviews = []
     }
 
     componentDidMount() {
         this.loadReviews().then(res => {
-                this.setState({reviews: res})
+            this.setState({reviews: res})
         })
     }
 
     loadReviews = async () => {
         try {
-            const res = await apiServices.getRoomReviews(this.roomId)
+            console.log(this.postId)
+            const res = await apiServices.getPostComment(this.postId)
+            console.log('-----')
+            console.log(res)
             let reviews = []
             for (let i = 0; i < res.length; i++) {
+                const date = new Date(res[i].createdTime)
+                const dateTime = date.toDateString()
                 reviews.push({
                     content: res[i].content,
                     avatar: res[i].avatar,
-                    author: res[i].username,
-                    datetime: res[i].time
+                    author: res[i].creator,
+                    datetime: dateTime
                 })
             }
             return reviews
         } catch (err) {
             console.log(err)
         }
-    }
-
-    fuck = () => {
-        console.log('fuck')
-        console.log(this.reviews)
     }
 
     render() {

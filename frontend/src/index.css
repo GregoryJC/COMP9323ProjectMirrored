@@ -30,7 +30,7 @@ code {
 }
 
 .Main-Button {
-  height: 60px;
+  height: 60px !important;
   border-radius: 20px;
   margin: 30px;
   width: 90%;

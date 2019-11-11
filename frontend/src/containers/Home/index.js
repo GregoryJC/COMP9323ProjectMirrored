@@ -21,7 +21,8 @@ const createPost = () => (
                 margin: '30px',
                 width: '60%',
                 backgroundColor: 'rgba(104,188,99,1)',
-                border: '5px solid #fff'
+                border: '5px solid #fff',
+                marginLeft: '40px'
             }}>
                 <span style={{fontSize: '20px', fontWeight: 'bold'}}>Create Posts</span>
             </Button>
@@ -30,6 +31,10 @@ const createPost = () => (
 )
 
 class Home extends Component {
+    componentDidMount() {
+        console.log(document.cookie)
+    }
+
     render() {
         return (
             <div className="Home-Container">

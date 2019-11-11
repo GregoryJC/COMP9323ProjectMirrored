@@ -6,9 +6,11 @@ class GrowingPosts extends Component {
     render() {
         return (
             <div className="Home-Cards" style={{height: 'auto', fontWeight: 'bolder', alignItems: 'center'}}>
-                <Button type="danger" className="Main-Button">
-                    <span style={{fontSize: '20px', fontWeight: 'bold'}}>Today's Top Growing Posts</span>
-                </Button>
+                <div>
+                    <Button type="danger" className="Main-Button">
+                        <span style={{fontSize: '20px', fontWeight: 'bold'}}>Today's Top Growing Posts</span>
+                    </Button>
+                </div>
                 <div style={{width: '90%'}}>
                     <p>
                         <span style={{fontSize: '24px', color: 'red'}}>1 &nbsp;</span>
@@ -35,6 +37,7 @@ class GrowingPosts extends Component {
                         <Link to='/'
                               className="Customized-Link">10 PHP Coding tips for beginners</Link>
                     </p>
+                    <Link to='/posts' style={{fontSize: '30px', marginTop: '30px', float: 'right'}}>See all</Link>
                 </div>
             </div>
         )

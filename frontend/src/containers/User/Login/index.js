@@ -32,7 +32,7 @@ class Login extends Component {
     render() {
         return (
             <div className="Login">
-                {this.props.user.isAuth ? <Redirect to='/'></Redirect> : null}
+                {this.props.user.isAuth ? <Redirect to='/'/> : null}
                 <div className="Image-Div">
                     <img src={require("../../../assets/images/login-background.jpg")} className="Home-Image"
                          alt="background"/>

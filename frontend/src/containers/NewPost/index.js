@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import SimpleMDE from "react-simplemde-editor"
 import "easymde/dist/easymde.min.css"
 import { Divider, Input, Button } from "antd"
+import APIServices from "../../api"
 
-
+const apiServices = new APIServices()
 class NewPost extends Component {
     constructor(props) {
         super(props)
@@ -20,12 +21,28 @@ class NewPost extends Component {
         })
     }
 
+    handleSubmit = async () => {
+        try {
+            return await apiServices.postPost(this.state.title, this.state.mdeValue)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     submitPost = () => {
         console.log('title')
         console.log(this.state.title)
         console.log('mde')
         console.log(this.state.mdeValue)
+        this.handleSubmit().then(res => {
+            if (res.status === 200) {
+                const postId = res.data.id
+                this.props.history.push(`/posts/${postId}`)
+            }
+        })
     }
+
+
 
     render() {
         return (
