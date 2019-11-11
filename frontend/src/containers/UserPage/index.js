@@ -3,14 +3,14 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import ChangePassword from "./subpages/ChangePassword"
-import MyInfo from "./subpages/MyInfo"
 import MyAbility from './subpages/MyAbility'
-// import MyAbility from './subpages/MyAbility'
-// import MyAbility from './subpages/MyAbility'
+import MyPost from "./subpages/MyPost"
 
 import './style.css'
 import { Avatar, Layout, Menu } from "antd"
+import APIServices from "../../api"
 
+const apiServices = new APIServices()
 const {Sider, Content} = Layout
 
 
@@ -18,7 +18,7 @@ class UserPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            infoList: ['Info', 'My abilities', 'My posts', 'My projects', 'Change password'],
+            infoList: ['My abilities', 'My posts', 'My projects', 'Change password'],
             listIndex: '0',
         }
     }
@@ -28,6 +28,15 @@ class UserPage extends Component {
     }
 
     componentDidMount() {
+        this.getProfile().then(res => {
+            console.log(res)
+        }).catch(e => {
+            console.log(e)
+        })
+    }
+
+    getProfile = async () => {
+        return await apiServices.getProfile()
     }
 
     render() {
@@ -58,15 +67,12 @@ class UserPage extends Component {
                                 <Menu.Item key='3'>
                                     <span>{this.state.infoList[3]}</span>
                                 </Menu.Item>
-                                <Menu.Item key='4'>
-                                    <span>{this.state.infoList[4]}</span>
-                                </Menu.Item>
                             </Menu>
                         </Sider>
                         <Content style={{background: "#fff", padding: 24, minHeight: 800}}>
-                            {this.state.listIndex === "0" ? <MyInfo/> : null}
-                            {this.state.listIndex === "1" ? <MyAbility/> : null}
-                            {this.state.listIndex === "4" ? <ChangePassword/> : null}
+                            {this.state.listIndex === "0" ? <MyAbility/> : null}
+                            {this.state.listIndex === "1" ? <MyPost/> : null}
+                            {this.state.listIndex === "3" ? <ChangePassword/> : null}
                         </Content>
                     </Layout>
                 </Layout>

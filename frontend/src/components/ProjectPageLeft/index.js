@@ -14,7 +14,10 @@ class ProjectPageLeft extends Component {
     render() {
         return (
             <div>
-                <ProjectCard project={project}/>
+                <h3>Projects</h3>
+                <div style={{marginTop: '30px'}}>
+                    <ProjectCard project={project}/>
+                </div>
             </div>
         )
     }

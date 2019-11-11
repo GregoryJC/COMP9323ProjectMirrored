@@ -5,12 +5,12 @@ import { Route, Switch, Link } from 'react-router-dom'
 import GrowingPosts from "../../components/GrowingPosts"
 import ProjectRecommended from "../../components/ProjectRecommended"
 
-import HomePageLeft from "../../components/HomePageLeft"
 import QuizPageLeft from '../../components/QuizPageLeft'
 import ProjectPageLeft from "../../components/ProjectPageLeft"
 
 import './style.css'
 import { Button } from "antd"
+import AllPosts from "../AllPosts"
 
 const createPost = () => (
     <div style={{alignItems: 'center', marginLeft: '20%'}}>
@@ -32,7 +32,7 @@ const createPost = () => (
 
 class Home extends Component {
     componentDidMount() {
-        console.log(document.cookie)
+
     }
 
     render() {
@@ -42,7 +42,7 @@ class Home extends Component {
                     <div style={{width: '63%', display: 'flex', flexDirection: 'column', paddingRight: '30px'}}>
                         <Switch>
                             <Route path='/quizzes' exact component={QuizPageLeft}/>
-                            <Route path='/' exact component={HomePageLeft}/>
+                            <Route path='/' exact component={AllPosts}/>
                             <Route path='/projects' exact component={ProjectPageLeft}/>
                         </Switch>
                     </div>

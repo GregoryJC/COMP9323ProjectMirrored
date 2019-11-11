@@ -14,8 +14,11 @@ class QuizPageLeft extends Component {
     render() {
         return (
             <div>
-                <QuizCard quiz={quizzes["1"]}/>
-                <QuizCard quiz={quizzes["2"]}/>
+                <h3>Quizzes</h3>
+                <div style={{marginTop: '30px'}}>
+                    <QuizCard quiz={quizzes["1"]}/>
+                    <QuizCard quiz={quizzes["2"]}/>
+                </div>
             </div>
         )
     }

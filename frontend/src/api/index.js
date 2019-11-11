@@ -7,7 +7,7 @@ axios.defaults.xsrfCookieName = 'csrftoken'
 const prefix = "http://3.24.134.149:8080"
 
 export default class APIServices {
-    // OK
+    // SIGN IN/SIGN UP
     userLogin(username, password) {
         const url = `${prefix}/api/login`
         const body = {
@@ -20,7 +20,7 @@ export default class APIServices {
             }, withCredentials: true
         })
     }
-    // OK
+
     userRegister(username, password) {
         const url = `${prefix}/api/signup`
         const body = {
@@ -33,12 +33,13 @@ export default class APIServices {
             }, withCredentials: true
         })
     }
-    // OK
+
+    // POST
     getAllPosts() {
         const url = `${prefix}/api/post`
         return axios.get(url, {withCredentials: true}).then(res => res.data)
     }
-    // OK
+
     getPost(pk) {
         const url = `${prefix}/api/post/${pk}`
         return axios.get(url, {withCredentials: true}).then(res => res.data)
@@ -64,13 +65,15 @@ export default class APIServices {
     // OK
     getTopPost() {
         const url = `${prefix}/api/toppost`
-        return axios.get(url).then(res => res)
+        return axios.get(url).then(res => res.data)
     }
-    // OK
+
     getPostComment(pk) {
         const url = `${prefix}/api/post/${pk}/comment`
         return axios.get(url, {withCredentials: true}).then(res => res.data)
     }
+
+    // QUIZ
     // OK
     getQuizzes() {
         const url = `${prefix}/api/quiz`
@@ -79,6 +82,22 @@ export default class APIServices {
     // OK
     getOneQuiz(pk) {
         const url = `${prefix}/api/quiz/${pk}`
+        return axios.get(url, {withCredentials: true}).then(res => res.data)
+    }
+
+    // PROJECT
+    getOneProject(pk) {
+        const url = `${prefix}/api/project/${pk}`
+        return axios.get(url, {withCredentials: true}).then(res => res.data)
+    }
+
+    getPostFromS3(url) {
+        return axios.get(url).then(res => res.data)
+    }
+
+    // PROFILE
+    getProfile() {
+        const url = `${prefix}/api/profile`
         return axios.get(url, {withCredentials: true}).then(res => res.data)
     }
 
@@ -96,14 +115,4 @@ export default class APIServices {
         const url = `${prefix}/api/project`
         return axios.get(url, {withCredentials: true}).then(res => res.data)
     }
-
-    getOneProject(pk) {
-        const url = `${prefix}/api/project/${pk}`
-        return axios.get(url, {withCredentials: true}).then(res => res.data)
-    }
-
-    getPostFromS3(url) {
-        return axios.get(url).then(res => res.data)
-    }
-
 }

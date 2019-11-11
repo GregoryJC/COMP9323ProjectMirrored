@@ -45,15 +45,17 @@ class AllPosts extends Component {
     render() {
         return (
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <div style={{width: '80%', marginTop: '140px', minHeight: '800px'}}>
+                <div style={{width: '100%', minHeight: '800px'}}>
+                    <h3>Posts</h3>
                     <List itemLayout="horizontal"
                           pagination={{
                               // onChange: page => {
                               //     console.log(page)
                               // },
-                              pageSize: 10
+                              pageSize: 20
                           }}
                           dataSource={this.state.postList}
+                          style={{marginTop: '30px'}}
                           renderItem={item => (
                                   <PostBar title={item.title} author={item.author} time={item.time} id={item.id}/>
                           )}/>

@@ -6,7 +6,6 @@ import { Auth } from "aws-amplify"
 const apiServices = new APIServices()
 
 export function loginSuccess(data) {
-    console.log(document.cookie)
     return {type: LOGIN_SUCCESS, payload: data}
 }
 

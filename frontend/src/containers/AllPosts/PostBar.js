@@ -11,10 +11,11 @@ class PostBar extends Component {
         return (
             <div style={{
                 width: '100%',
-                height: '60px',
+                height: '80px',
                 background: '#fff',
                 borderBottom: '1px solid rgba(191, 191, 191, 1)',
-                padding: '10px'
+                padding: '10px',
+                // borderRadius: '3px'
             }}>
                 <div style={{
                     // width: '90%',
@@ -24,12 +25,13 @@ class PostBar extends Component {
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                 }}>
-                    <Link to={`/posts/${this.props.id}`} className="Customized-Link" style={{height: '20px'}}>
-                        <span style={{fontWeight: 'bold'}}>{this.props.title}</span>
+                    <Link to={`/posts/${this.props.id}`} className="Customized-Link" style={{marginTop: '10px'}}>
+                        <span style={{fontWeight: '700'}}>{this.props.title}</span>
                         <br/>
-                        <span>{this.props.author}</span>
+                        <span>Author: </span>
+                        <span style={{fontStyle: 'italic', fontWeight: '500'}}>{this.props.author}</span>
                     </Link>
-                    <div>
+                    <div style={{marginTop: '30px'}}>
                         <span>{this.props.time}</span>
                     </div>
                 </div>
