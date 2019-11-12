@@ -30,7 +30,7 @@ class AbilityCard extends Component {
     }
 
     componentDidMount() {
-        console.log(this.state.id)
+        // console.log(this.state.id)
     }
 
     fuck = () => {

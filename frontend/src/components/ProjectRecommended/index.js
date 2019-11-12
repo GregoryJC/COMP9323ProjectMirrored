@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Button } from "antd"
 import APIServices from "../../api"
 
-
 const apiServices = new APIServices()
 
 class ProjectRecommended extends Component {

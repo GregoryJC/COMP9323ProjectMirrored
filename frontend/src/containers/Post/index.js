@@ -25,7 +25,9 @@ class Post extends Component {
 
     componentDidMount() {
         this.getPost().then(res => {
-                this.setState({title: res.title, views: res.views, date: res.createdTime})
+                const date = new Date(res.createdTime)
+                const dateTime = date.toLocaleString()
+                this.setState({title: res.title, views: res.view, date: dateTime})
                 if (res.content.slice(0, 5) === "https") {
                     this.getPostMarkdown(res.content).then(res => {
                         this.setState({terms: res})
@@ -78,12 +80,24 @@ class Post extends Component {
         return await apiServices.postCommentPost(this.postId, this.state.content)
     }
 
+    fuck = () => {
+        console.log(this.state)
+    }
+
     render() {
         const disabled = this.state.content === ''
         return (
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <div style={{width: '90%', margin: '140px', display: 'flex', flexDirection: 'row'}}>
                     <div style={{width: '70%', backgroundColor: '#fff', padding: '40px', overflow: 'hidden'}}>
+                        <div>
+                            <span style={{fontWeight: 'bold'}}>Views: </span>
+                            <span style={{fontStyle: 'italic'}}>{this.state.views}</span>
+                        </div>
+                        <div>
+                            <span style={{fontWeight: 'bold'}}>Published time: </span>
+                            <span style={{fontStyle: 'italic'}}>{this.state.date}</span>
+                        </div>
                         <ReactMarkdown source={this.state.terms}/>
                         <Divider/>
                         <p style={{fontWeight: 'bold'}}>Comments</p>
@@ -93,7 +107,8 @@ class Post extends Component {
                         <TextArea rows={6} onChange={value => {
                             this.handleChange('content', value)
                         }}/>
-                        <Button style={{float: 'right', marginTop: '40px'}} disabled={disabled} onClick={this.submitComment}>Submit</Button>
+                        <Button style={{float: 'right', marginTop: '40px'}} disabled={disabled}
+                                onClick={this.submitComment}>Submit</Button>
                     </div>
                     <div style={{width: '30%', marginLeft: '2%'}}>
                         <GrowingPosts/>

@@ -85,6 +85,11 @@ export default class APIServices {
         return axios.get(url, {withCredentials: true}).then(res => res.data)
     }
 
+    postAnswer(ans, pk) {
+        const url = `${prefix}/api/quiz/${pk}`
+        return axios.post(url, ans, {withCredentials: true})
+    }
+
     // PROJECT
     getOneProject(pk) {
         const url = `${prefix}/api/project/${pk}`

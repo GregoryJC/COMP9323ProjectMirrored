@@ -5,7 +5,7 @@ import ScrollToTop from './components/ScrollToTop'
 import Header from './components/Header'
 import Footer from "./components/Footer"
 import Home from "./containers/Home"
-import AllPosts from "./containers/AllPosts"
+import AllPosts from "./components/AllPosts"
 import NewPost from "./containers/NewPost"
 import Quiz from "./containers/Quiz"
 import UserPage from "./containers/UserPage"

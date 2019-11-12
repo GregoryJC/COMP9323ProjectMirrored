@@ -21,10 +21,7 @@ class Comments extends Component {
 
     loadReviews = async () => {
         try {
-            console.log(this.postId)
             const res = await apiServices.getPostComment(this.postId)
-            console.log('-----')
-            console.log(res)
             let reviews = []
             for (let i = 0; i < res.length; i++) {
                 const date = new Date(res[i].createdTime)

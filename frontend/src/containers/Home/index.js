@@ -10,7 +10,7 @@ import ProjectPageLeft from "../../components/ProjectPageLeft"
 
 import './style.css'
 import { Button } from "antd"
-import AllPosts from "../AllPosts"
+import AllPosts from "../../components/AllPosts"
 
 const createPost = () => (
     <div style={{alignItems: 'center', marginLeft: '20%'}}>
