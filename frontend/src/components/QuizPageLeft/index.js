@@ -4,15 +4,6 @@ import APIServices from "../../api"
 
 const apiServices = new APIServices()
 
-const quizzes = {
-    1: {
-        title: 'Front-end Quiz #1'
-    },
-    2: {
-        title: 'Back-end Quiz #1'
-    }
-}
-
 class QuizPageLeft extends Component {
     constructor(props) {
         super(props)
@@ -41,8 +32,6 @@ class QuizPageLeft extends Component {
             <div>
                 <h3>Quizzes</h3>
                 <div style={{marginTop: '30px'}}>
-                    {/*<QuizCard quiz={quizzes["1"]}/>*/}
-                    {/*<QuizCard quiz={quizzes["2"]}/>*/}
                     {this.state.quizList}
                 </div>
             </div>

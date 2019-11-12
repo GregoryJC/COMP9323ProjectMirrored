@@ -8,11 +8,8 @@ import MyPost from "./subpages/MyPost"
 
 import './style.css'
 import { Avatar, Layout, Menu } from "antd"
-import APIServices from "../../api"
 
-const apiServices = new APIServices()
 const {Sider, Content} = Layout
-
 
 class UserPage extends Component {
     constructor(props) {
@@ -25,18 +22,6 @@ class UserPage extends Component {
 
     handleClick = (e) => {
         this.setState({'listIndex': e.key})
-    }
-
-    componentDidMount() {
-        this.getProfile().then(res => {
-            console.log(res)
-        }).catch(e => {
-            console.log(e)
-        })
-    }
-
-    getProfile = async () => {
-        return await apiServices.getProfile()
     }
 
     render() {

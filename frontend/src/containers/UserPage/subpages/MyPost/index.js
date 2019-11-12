@@ -19,7 +19,7 @@ class MyPost extends Component {
                 const post = res[i]
                 const date = new Date(post.createdTime)
                 const dateStr = date.toDateString()
-                posts.push(<PostBar title={post.title} id={post.id} time={dateStr} author={post.author}/>)
+                posts.push(<PostBar key={post.id} title={post.title} id={post.id} time={dateStr} author={post.author}/>)
             }
             this.setState({postList: posts})
         }).catch(e => {

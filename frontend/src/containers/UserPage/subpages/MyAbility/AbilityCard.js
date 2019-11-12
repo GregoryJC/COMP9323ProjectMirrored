@@ -25,16 +25,15 @@ class AbilityCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: this.props.abilityId
+            id: this.props.abilityId,
+            canDo: false
         }
     }
 
     componentDidMount() {
-        // console.log(this.state.id)
-    }
-
-    fuck = () => {
-        console.log('fuck')
+        if (this.props.canDo === 1) {
+            this.setState({canDo: true})
+        }
     }
 
     render() {
@@ -52,7 +51,7 @@ class AbilityCard extends Component {
                                          style={{margin: '10px 0px 0px 20px'}}/>
                     </div>
                     <div style={{width: '35%', height: '100%'}}>
-                        <FontAwesomeIcon icon={["fas", "times"]} size={'3x'}
+                        <FontAwesomeIcon icon={["fas", this.state.canDo ? "check" : "times"]} size={'3x'}
                                          style={{margin: '20px 0px 0px 7px'}}/>
                     </div>
                 </div>
