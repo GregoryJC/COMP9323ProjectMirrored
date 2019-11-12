@@ -21,7 +21,7 @@
 >
 > - `GET` `/api/quiz/<int: id>/`  ***Retrieve a quiz***
 > - `GET` `/api/quiz/`  ***Retrieve all quiz***
-> - `POST` `/api/quiz/`  ***Submit a quiz***
+> - `POST` `/api/quiz/{id}`  ***Submit a quiz***
 
 > **Top Post**
 >
