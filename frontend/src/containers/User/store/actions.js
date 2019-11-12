@@ -1,6 +1,6 @@
 import APIServices from "../../../api"
 import { ERROR_MSG, LOGIN_SUCCESS, LOGOUT } from "./constants"
-import { Auth } from "aws-amplify"
+// import { Auth } from "aws-amplify"
 
 
 const apiServices = new APIServices()
@@ -24,9 +24,6 @@ export function userLogin(email, password) {
     return async dispatch => {
         try {
             const res = await apiServices.userLogin(email, password)
-            console.log('login')
-            console.log(res)
-            console.log(res.data)
             localStorage.setItem('logged', JSON.stringify(res.data))
             dispatch(loginSuccess(res.data))
             // Auth.signIn({

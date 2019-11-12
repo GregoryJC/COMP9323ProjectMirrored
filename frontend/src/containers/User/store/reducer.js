@@ -5,8 +5,6 @@ const defaultState = {
     errorMsg: '',
     nickname: '',
     email: '',
-    jwt: '',
-    // itemInCart: 0,
     cookieFinish: 'false',
 }
 

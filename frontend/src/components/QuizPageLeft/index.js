@@ -15,7 +15,6 @@ class QuizPageLeft extends Component {
     componentDidMount() {
         this.getQuizzes().then(res => {
             for (let i = 0; i < res.length; i++) {
-                console.log(res[i])
                 this.quizList.push(<QuizCard key={i} quiz={res[i]}/>)
             }
             this.setState({quizList: this.quizList})

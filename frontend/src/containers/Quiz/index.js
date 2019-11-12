@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Button } from "antd"
+import { Button, Modal } from "antd"
 import Question from "../../components/Question"
 import APIServices from "../../api"
 
@@ -13,25 +13,14 @@ class Quiz extends Component {
         this.state = {
             name: '',
             skill: '',
+            result: '',
             score: 0,
-            questions: []
+            questions: [],
+            visible: false,
+            confirmLoading: false,
+            ModalText: "",
         }
         this.onChildChange = this.onChildChange.bind(this)
-        // this.questions = {
-        //     1: {
-        //         number: 1,
-        //         content: 'A collection of data containing both properties and methods is called...'
-        //     },
-        //     2: {
-        //         number: 2,
-        //         content: 'In JavaScript, \'this\' refers to the object that ____ the object.'
-        //     }
-        // }
-        // this.q = []
-        // this.q.push(<Question key={this.questions["1"].number} question={this.questions["1"]}
-        //                       onInputChange={this.onChildChange}/>)
-        // this.q.push(<Question key={this.questions["2"].number} question={this.questions["2"]}
-        //                       onInputChange={this.onChildChange}/>)
         this.answers = {}
         const url = this.props.location.pathname.split("/")
         this.quizId = url.pop()
@@ -67,14 +56,35 @@ class Quiz extends Component {
 
     submitAnswer = () => {
         let answers = []
-        console.log(this.answers)
         for (let i in this.answers) {
             answers.push(this.answers[i])
         }
         this.postAnswer(answers, this.quizId).then(res => {
-            console.log(res)
+            this.setState({score: res.data.mark, result: res.data.result})
+            this.showModal()
         }).catch(e => {
             console.log(e)
+        })
+    }
+
+    showModal = () => {
+        if (this.state.result === 'pass') {
+            this.setState({ModalText: `Congratulations! You have passed the quiz! Your score is ${this.state.score}`})
+        } else {
+            this.setState({ModalText: `Oops, you failed quiz! Your score is ${this.state.score}`})
+        }
+        this.setState({
+            visible: true
+        })
+    }
+
+    handleOk = () => {
+        this.props.history.push(`/quizzes`)
+    }
+
+    handleCancel = () => {
+        this.setState({
+            visible: false
         })
     }
 
@@ -83,9 +93,19 @@ class Quiz extends Component {
     }
 
     render() {
+        const {visible, confirmLoading, ModalText} = this.state
         return (
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 {this.props.user.isAuth ? null : <Redirect to='/login'/>}
+                <Modal
+                    title="Reserve"
+                    visible={visible}
+                    onOk={this.handleOk}
+                    confirmLoading={confirmLoading}
+                    onCancel={this.handleCancel}
+                >
+                    <p>{ModalText}</p>
+                </Modal>
                 <div style={{width: '90%', marginTop: '140px'}}>
                     <div style={{margin: '0px 0px 20px 20px'}}>
                         <div>
@@ -102,7 +122,6 @@ class Quiz extends Component {
                 <Button type="primary" onClick={this.submitAnswer} style={{margin: '40px'}}>
                     Submit
                 </Button>
-                <p>User's score is {this.state.score}</p>
             </div>
         )
     }

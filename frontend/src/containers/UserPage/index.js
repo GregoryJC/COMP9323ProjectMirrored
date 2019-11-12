@@ -55,7 +55,7 @@ class UserPage extends Component {
                             </Menu>
                         </Sider>
                         <Content style={{background: "#fff", padding: 24, minHeight: 800}}>
-                            {this.state.listIndex === "0" ? <MyAbility/> : null}
+                            {this.state.listIndex === "0" ? <MyAbility history={this.props.history}/> : null}
                             {this.state.listIndex === "1" ? <MyPost/> : null}
                             {this.state.listIndex === "3" ? <ChangePassword/> : null}
                         </Content>
