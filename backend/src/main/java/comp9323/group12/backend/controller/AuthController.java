@@ -55,7 +55,13 @@ public class AuthController {
     return new SimpleResponse("sign up successfully");
   }
 
-  @GetMapping("/auth/{uid}")
+  @PostMapping("/api/profile/updatePassword")
+  public SimpleResponse updatePassword(@RequestBody UpdatePasswordRequest password, HttpServletResponse response, Principal principal) {
+    authUserMapper.updatePassword(password.getNewPassword(), principal.getName());
+    return new SimpleResponse("update successfully");
+  }
+
+  @GetMapping("/api/profile/{uid}")
   public AuthUser getUser(@PathVariable("uid") Integer uid) {
     return authUserMapper.getUserByUid(uid);
   }
@@ -74,4 +80,25 @@ public class AuthController {
     return ResponseEntity.ok().build();
   }
 
+}
+
+class UpdatePasswordRequest {
+  private String oldPassword;
+  private String newPassword;
+
+  public String getOldPassword() {
+    return oldPassword;
+  }
+
+  public void setOldPassword(String oldPassword) {
+    this.oldPassword = oldPassword;
+  }
+
+  public String getNewPassword() {
+    return newPassword;
+  }
+
+  public void setNewPassword(String newPassword) {
+    this.newPassword = newPassword;
+  }
 }
