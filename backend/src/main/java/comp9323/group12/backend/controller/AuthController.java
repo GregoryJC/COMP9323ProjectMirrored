@@ -3,7 +3,6 @@ package comp9323.group12.backend.controller;
 import comp9323.group12.backend.entities.AuthUser;
 import comp9323.group12.backend.mapper.AuthUserMapper;
 import comp9323.group12.backend.support.SimpleResponse;
-import org.apache.ibatis.annotations.Options;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
