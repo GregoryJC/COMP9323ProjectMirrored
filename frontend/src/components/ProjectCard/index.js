@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './style.css'
 import { Input, Modal, Tag } from "antd"
+import { Link } from "react-router-dom"
 
 const {TextArea} = Input
 
@@ -60,11 +61,17 @@ class ProjectCard extends Component {
         return (
             <div className="Project-Card">
                 <div style={{width: '100%'}}>
-                    <h3 style={{fontWeight: 'bolder'}}>{this.props.name}</h3>
+                    <Link to={`/projects/${this.props.id}`} className="Customized-Link">
+                        <h3 style={{fontWeight: 'bolder'}}>{this.props.name}</h3>
+                    </Link>
                     <p style={{fontWeight: 'lighter', color: 'rgba(82,82,82,1)'}}>Creator: {this.props.creator}</p>
                     <p style={{fontWeight: 'lighter', color: 'rgba(82,82,82,1)'}}>Created time: {this.props.time}</p>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
-                        <p style={{fontWeight: 'bolder', color: 'rgba(82,82,82,1)', marginRight: '10px'}}>Prerequisits: </p>
+                        <p style={{
+                            fontWeight: 'bolder',
+                            color: 'rgba(82,82,82,1)',
+                            marginRight: '10px'
+                        }}>Prerequisits: </p>
                         {this.state.requirementDiv}
                     </div>
                 </div>

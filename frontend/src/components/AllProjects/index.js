@@ -27,7 +27,7 @@ class AllProjects extends Component {
                 console.log(project)
                 const date = new Date(res[i].createdTime)
                 const dateStr = date.toDateString()
-                projects.push(<ProjectCard key={project.id} name={project.name} creator={project.creator} time={dateStr} requirements={project.requirement}/>)
+                projects.push(<ProjectCard key={project.id} id={project.id} name={project.name} creator={project.creator} time={dateStr} requirements={project.requirement}/>)
             }
             return projects
         } catch (e) {
