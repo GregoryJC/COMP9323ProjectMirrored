@@ -28,6 +28,7 @@ class Post extends Component {
                 const date = new Date(res.createdTime)
                 const dateTime = date.toLocaleString()
                 this.setState({title: res.title, views: res.view, date: dateTime})
+            console.log(res.content)
                 if (res.content.slice(0, 5) === "https") {
                     this.getPostMarkdown(res.content).then(res => {
                         this.setState({terms: res})

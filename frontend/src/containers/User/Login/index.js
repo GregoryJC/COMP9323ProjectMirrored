@@ -47,7 +47,7 @@ class Login extends Component {
                             <Form onSubmit={this.handleSubmit} style={{marginTop: '10%', height: '30%'}}>
                                 <Form.Item>
                                     <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                           placeholder="Email Address" onChange={value => {
+                                           placeholder="Username" onChange={value => {
                                         this.handleChange('email', value)
                                     }}
                                     />

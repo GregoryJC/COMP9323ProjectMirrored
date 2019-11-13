@@ -22,7 +22,7 @@ class Register extends Component {
         let password = this.state.password
         let passwordConfirm = this.state.passwordConfirm
         console.log(email, username, password)
-        this.props.userRegister(email, username, password, passwordConfirm)
+        this.props.userRegister(username, password, passwordConfirm)
     }
 
     handleChange(key, e) {
@@ -33,7 +33,7 @@ class Register extends Component {
 
     render() {
         const passwordHint = "Password must be at least eight characters long and contain at least one lowercase letter, one uppercase letter, one number."
-        const emailHint = "Available email address, for example: abc@gmail.com"
+        // const emailHint = "Available email address, for example: abc@gmail.com"
         const nameHint = "Your display name on website"
         const confirmPasswordHint = "Enter password again, must be the same as password"
         return (
@@ -50,15 +50,15 @@ class Register extends Component {
                                 <h2>Sign up</h2>
                             </div>
                             <Form>
-                                <Form.Item>
-                                    <Input prefix={<Popover placement="topLeft" content={emailHint}
-                                                            title={"Email"}><Icon type="mail"
-                                                                                  style={{color: 'rgba(0,0,0,.25)'}}/></Popover>}
-                                           placeholder="Email"
-                                           onChange={value => {
-                                               this.handleChange('email', value)
-                                           }}/>
-                                </Form.Item>
+                                {/*<Form.Item>*/}
+                                {/*    <Input prefix={<Popover placement="topLeft" content={emailHint}*/}
+                                {/*                            title={"Email"}><Icon type="mail"*/}
+                                {/*                                                  style={{color: 'rgba(0,0,0,.25)'}}/></Popover>}*/}
+                                {/*           placeholder="Email"*/}
+                                {/*           onChange={value => {*/}
+                                {/*               this.handleChange('email', value)*/}
+                                {/*           }}/>*/}
+                                {/*</Form.Item>*/}
                                 <Form.Item>
                                     <Input prefix={<Popover placement="topLeft" content={nameHint}
                                                             title={"Username"}><Icon type="user"

@@ -6,7 +6,7 @@ import { ERROR_MSG, LOGIN_SUCCESS, LOGOUT } from "./constants"
 const apiServices = new APIServices()
 
 export function loginSuccess(data) {
-    return {type: LOGIN_SUCCESS, payload: data}
+    return {type: LOGIN_SUCCESS, payload: data.principal}
 }
 
 function errorMsg(msg) {
@@ -52,21 +52,21 @@ export function userLogin(email, password) {
     }
 }
 
-export function userRegister(email, username, password, passwordConfirm) {
-    const emailReg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+export function userRegister(username, password, passwordConfirm) {
+    // const emailReg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     const passwordReg = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})")
-    if (!email) {
-        return dispatch => dispatch(errorMsg('Email should not be empty'))
-    }
+    // if (!email) {
+    //     return dispatch => dispatch(errorMsg('Email should not be empty'))
+    // }
     if (!username) {
         return dispatch => dispatch(errorMsg('Username should not be empty'))
     }
     if (!password) {
         return dispatch => dispatch(errorMsg('Password should not be empty'))
     }
-    if (emailReg.test(email) === false) {
-        return dispatch => dispatch(errorMsg('Email is not available'))
-    }
+    // if (emailReg.test(email) === false) {
+    //     return dispatch => dispatch(errorMsg('Email is not available'))
+    // }
     if (passwordConfirm !== password) {
         return dispatch => dispatch(errorMsg('Password and confirmed password should be same'))
     }
@@ -75,7 +75,7 @@ export function userRegister(email, username, password, passwordConfirm) {
     }
     return async dispatch => {
         try {
-            const res = await apiServices.userRegister(email, password)
+            const res = await apiServices.userRegister(username, password)
             console.log('register')
             console.log(res.data)
             localStorage.setItem('logged', JSON.stringify(res.data))

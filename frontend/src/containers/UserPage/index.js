@@ -37,8 +37,8 @@ class UserPage extends Component {
                                   style={{height: "100%"}}
                                   onClick={this.handleClick}>
                                 <div style={{textAlign: 'center'}}>
-                                    <Avatar size={64} src={this.props.user.avatar} style={{margin: "30px 0px 30px 0px"}}/>
-                                    <p>{this.props.user.nickname}</p>
+                                    <Avatar size={64} icon="user" src={this.props.user.avatar} style={{margin: "30px 0px 30px 0px"}}/>
+                                    <p>{this.props.user.username}</p>
                                 </div>
                                 <Menu.Item key='0'>
                                     <span>{this.state.infoList[0]}</span>

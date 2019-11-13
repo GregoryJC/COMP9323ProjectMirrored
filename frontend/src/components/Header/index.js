@@ -40,7 +40,7 @@ class Header extends Component {
                                 <Link className="Header-Link" to="/projects">Projects</Link>
                                 <Dropdown overlay={this.menu}>
                                     <a className="Header-Link" href="/#">
-                                        Hello {this.props.user.nickname} <Icon type="down"/>
+                                        Hello {this.props.user.username} <Icon type="down"/>
                                     </a>
                                 </Dropdown>
                             </div> :

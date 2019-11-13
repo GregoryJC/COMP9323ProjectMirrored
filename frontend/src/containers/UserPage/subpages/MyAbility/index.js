@@ -30,6 +30,7 @@ class MyAbility extends Component {
             for (let i = 0; i < 12; i++) {
                 this.abilityList.push(<AbilityCard key={i} abilityId={i} canDo={canDoList[i]} history={this.props.history}/>)
             }
+            console.log(this.abilityList)
             this.setState({abilityList: this.abilityList})
         }).catch(e => {
             console.log(e)
