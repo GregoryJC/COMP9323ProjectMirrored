@@ -61,7 +61,7 @@ public class ProjectController {
 
     project.setName(projectRequest.getName());
     project.setSummary(projectRequest.getSummary());
-    project.setRequirement(projectRequest.getRequirement().toString());
+    project.setRequirement(projectRequest.getRequirement().stream().collect(Collectors.joining(", ")));
 
     projectMapper.createProject(project);
 
@@ -94,7 +94,7 @@ public class ProjectController {
     if (requirement != null && !"".equals(requirement)) {
       List<String> requiredSkills = Arrays.stream(requirement.split(",\\s*")).collect(Collectors.toList());
 
-      if (!requiredSkills.containsAll(verifiedSkills)) {
+      if (!verifiedSkills.containsAll(requiredSkills)) {
         response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         return project;
       }
