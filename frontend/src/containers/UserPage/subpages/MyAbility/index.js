@@ -22,15 +22,14 @@ class MyAbility extends Component {
             if (mySkills !== null) {
                 this.setState({skills: mySkills.length})
                 for (let i = 0; i < mySkills.length; i++) {
-                    console.log(mySkills[i])
-                    console.log(SKILL_SET_BACKEND.indexOf(mySkills[i]))
+                    // console.log(mySkills[i])
+                    // console.log(SKILL_SET_BACKEND.indexOf(mySkills[i]))
                     canDoList[SKILL_SET_BACKEND.indexOf(mySkills[i])] = 1
                 }
             }
             for (let i = 0; i < 12; i++) {
                 this.abilityList.push(<AbilityCard key={i} abilityId={i} canDo={canDoList[i]} history={this.props.history}/>)
             }
-            console.log(this.abilityList)
             this.setState({abilityList: this.abilityList})
         }).catch(e => {
             console.log(e)

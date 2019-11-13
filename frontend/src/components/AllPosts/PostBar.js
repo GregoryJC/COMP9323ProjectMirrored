@@ -17,24 +17,45 @@ class PostBar extends Component {
                 padding: '10px',
                 // borderRadius: '3px'
             }}>
-                <div style={{
-                    // width: '90%',
-                    marginLeft: '3%',
-                    height: '40px',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                }}>
-                    <Link to={`/posts/${this.props.id}`} className="Customized-Link" style={{marginTop: '10px'}}>
-                        <span style={{fontWeight: '700'}}>{this.props.title}</span>
-                        <br/>
-                        <span>Author: </span>
-                        <span style={{fontStyle: 'italic', fontWeight: '500'}}>{this.props.author}</span>
-                    </Link>
-                    <div style={{marginTop: '30px'}}>
-                        <span>{this.props.time}</span>
-                    </div>
-                </div>
+                {this.props.isComment ?
+                    <div style={{
+                        // width: '90%',
+                        marginLeft: '3%',
+                        height: '40px',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                    }}>
+                        <div style={{marginTop: '10px'}}>
+                            <span>{this.props.comment}</span>
+                            <br/>
+                            <Link to={`/posts/${this.props.id}`} className="Customized-Link">
+                                <span style={{fontStyle: 'italic', fontWeight: '500'}}>Check this post</span>
+                            </Link>
+                        </div>
+                        <div style={{marginTop: '30px'}}>
+                            <span>{this.props.time}</span>
+                        </div>
+                    </div> :
+                    <div style={{
+                        // width: '90%',
+                        marginLeft: '3%',
+                        height: '40px',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                    }}>
+                        <Link to={`/posts/${this.props.id}`} className="Customized-Link" style={{marginTop: '10px'}}>
+                            <span style={{fontWeight: '700'}}>{this.props.title}</span>
+                            <br/>
+                            <span>Author: </span>
+                            <span style={{fontStyle: 'italic', fontWeight: '500'}}>{this.props.author}</span>
+                        </Link>
+                        <div style={{marginTop: '30px'}}>
+                            <span>{this.props.time}</span>
+                        </div>
+                    </div>}
+
             </div>
         )
     }

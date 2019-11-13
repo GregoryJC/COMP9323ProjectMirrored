@@ -6,11 +6,11 @@ import GrowingPosts from "../../components/GrowingPosts"
 import ProjectRecommended from "../../components/ProjectRecommended"
 
 import QuizPageLeft from '../../components/QuizPageLeft'
-import ProjectPageLeft from "../../components/ProjectPageLeft"
 
 import './style.css'
 import { Button } from "antd"
 import AllPosts from "../../components/AllPosts"
+import AllProjects from "../../components/AllProjects"
 
 const createPost = () => (
     <div style={{alignItems: 'center', marginLeft: '20%'}}>
@@ -43,7 +43,7 @@ class Home extends Component {
                         <Switch>
                             <Route path='/quizzes' exact component={QuizPageLeft}/>
                             <Route path='/' exact component={AllPosts}/>
-                            <Route path='/projects' exact component={ProjectPageLeft}/>
+                            <Route path='/projects' exact component={AllProjects}/>
                         </Switch>
                     </div>
                     <div style={{

@@ -73,6 +73,10 @@ export default class APIServices {
         return axios.get(url, {withCredentials: true}).then(res => res.data)
     }
 
+    getPostFromS3(url) {
+        return axios.get(url).then(res => res.data)
+    }
+
     // QUIZ
     // OK
     getQuizzes() {
@@ -91,13 +95,14 @@ export default class APIServices {
     }
 
     // PROJECT
-    getOneProject(pk) {
-        const url = `${prefix}/api/project/${pk}`
+    getProjects() {
+        const url = `${prefix}/api/project`
         return axios.get(url, {withCredentials: true}).then(res => res.data)
     }
 
-    getPostFromS3(url) {
-        return axios.get(url).then(res => res.data)
+    getOneProject(pk) {
+        const url = `${prefix}/api/project/${pk}`
+        return axios.get(url, {withCredentials: true}).then(res => res.data)
     }
 
     // PROFILE
@@ -113,11 +118,6 @@ export default class APIServices {
 
     getUserComments() {
         const url = `${prefix}/api/profile/comments`
-        return axios.get(url, {withCredentials: true}).then(res => res.data)
-    }
-
-    getProjects() {
-        const url = `${prefix}/api/project`
         return axios.get(url, {withCredentials: true}).then(res => res.data)
     }
 }

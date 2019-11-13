@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom"
 import './style.css'
-import { Button, Input, Modal } from "antd"
+import { Input, Modal, Tag } from "antd"
 
 const {TextArea} = Input
 
@@ -11,6 +10,23 @@ class ProjectCard extends Component {
         this.state = {
             visible: false,
             confirmLoading: false,
+            requirementDiv: null,
+        }
+    }
+
+    componentDidMount() {
+        const requirements = this.props.requirements
+        let requirementsList = []
+        if (requirements !== null) {
+            const requirementsArr = requirements.split(',')
+            for (let i = 0; i < requirementsArr.length; i++) {
+                console.log(requirementsArr[i])
+                requirementsList.push(<Tag color="magenta">{requirementsArr[i]}</Tag>)
+            }
+            const requirementDiv = <div>{requirementsList}</div>
+            this.setState({requirementDiv: requirementDiv})
+        } else {
+            this.setState({requirementDiv: <div>Null</div>})
         }
     }
 
@@ -44,29 +60,12 @@ class ProjectCard extends Component {
         return (
             <div className="Project-Card">
                 <div style={{width: '100%'}}>
-                    <h3 style={{fontWeight: 'bolder'}}>{this.props.project.title}</h3>
-                    <p style={{fontWeight: 'lighter', color: 'rgba(82,82,82,1)'}}>{this.props.project.author}</p>
+                    <h3 style={{fontWeight: 'bolder'}}>{this.props.name}</h3>
+                    <p style={{fontWeight: 'lighter', color: 'rgba(82,82,82,1)'}}>Creator: {this.props.creator}</p>
+                    <p style={{fontWeight: 'lighter', color: 'rgba(82,82,82,1)'}}>Created time: {this.props.time}</p>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
-                        <div style={{width: '50%', flexDirection: 'column'}}>
-                            <p>{this.props.project.abstract}</p>
-                            <Button type="danger" className="Main-Button"
-                                    style={{height: '50px', width: '100%', marginLeft: '0px'}}>
-                                <Link to='/quizzes/1'
-                                      style={{
-                                          fontSize: '100%',
-                                          fontWeight: 'bolder',
-                                          color: 'rgba(235,253,124,1)'
-                                      }}>Prerequisit: {this.props.project.prerequisit}</Link>
-                            </Button>
-                            <Button type="primary" className="Main-Button"
-                                    style={{height: '50px', width: '100%', marginLeft: '0px'}} onClick={this.showModal}>
-                                <span style={{fontSize: '100%', fontWeight: 'bolder'}}>Leave a message</span>
-                            </Button>
-                        </div>
-                        <div style={{marginLeft: '10%'}}>
-                            <img src={this.props.project.image}
-                                 style={{width: '100%', height: '100%', objectFit: 'cover'}} alt={"123"}/>
-                        </div>
+                        <p style={{fontWeight: 'bolder', color: 'rgba(82,82,82,1)', marginRight: '10px'}}>Prerequisits: </p>
+                        {this.state.requirementDiv}
                     </div>
                 </div>
                 <Modal
@@ -76,7 +75,8 @@ class ProjectCard extends Component {
                     confirmLoading={confirmLoading}
                     onCancel={this.handleCancel}
                 >
-                    <TextArea placeholder="Hi, I am a front-end developer of 10-year work experience, and I have passed the quiz. Can I join your project?My email: ******@hotmail.com User #02"/>
+                    <TextArea
+                        placeholder="Hi, I am a front-end developer of 10-year work experience, and I have passed the quiz. Can I join your project?My email: ******@hotmail.com User #02"/>
                 </Modal>
             </div>
         )

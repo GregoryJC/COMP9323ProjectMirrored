@@ -1,2 +1,2 @@
 export const ABILITY_SET = ['js', 'git', 'java', 'python', 'php', 'css3', 'html5', 'wordpress', 'android', 'angular', 'vuejs', 'swift']
-export const SKILL_SET_BACKEND = ['JavaScript', 'GitHub', 'Java', 'Python', 'PHP', 'CSS 3', 'HTML 5', 'WordPress', 'Android', 'Angular', 'Vue', 'Swift']
+export const SKILL_SET_BACKEND = ['JavaScript', 'Github', 'Java', 'Python', 'PHP', 'CSS 3', 'HTML 5', 'WordPress', 'Android', 'Angular', 'Vue', 'Swift']
