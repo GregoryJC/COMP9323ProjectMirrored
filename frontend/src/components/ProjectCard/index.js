@@ -21,7 +21,6 @@ class ProjectCard extends Component {
         if (requirements !== null) {
             const requirementsArr = requirements.split(',')
             for (let i = 0; i < requirementsArr.length; i++) {
-                console.log(requirementsArr[i])
                 requirementsList.push(<Tag color="magenta">{requirementsArr[i]}</Tag>)
             }
             const requirementDiv = <div>{requirementsList}</div>

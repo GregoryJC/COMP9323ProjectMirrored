@@ -4,11 +4,12 @@ import ProjectCard from "../ProjectCard"
 
 
 const apiServices = new APIServices()
+
 class AllProjects extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            projectList: []
+            projectList: [],
         }
     }
 
@@ -24,10 +25,10 @@ class AllProjects extends Component {
             let projects = []
             for (let i = 0; i < res.length; i++) {
                 const project = res[i]
-                console.log(project)
                 const date = new Date(res[i].createdTime)
                 const dateStr = date.toDateString()
-                projects.push(<ProjectCard key={project.id} id={project.id} name={project.name} creator={project.creator} time={dateStr} requirements={project.requirement}/>)
+                projects.push(<ProjectCard key={i} id={project.id} name={project.name} creator={project.creator}
+                                           time={dateStr} requirements={project.requirement}/>)
             }
             return projects
         } catch (e) {
