@@ -36,8 +36,8 @@
 > - `GET` `/api/profile/`  ***Retrieve one's profile***
 > - `GET` `/api/profile/posts/`  ***Retrieve one's posts***
 > - `GET` `/api/profile/comments/`  ***Retrieve one's comments***
+> - `GET` `/api/profile/projects/`  ***show a list of enrolling projects***
 > - `GET` `/api/profile/project/favorite/`  ***show a list of favorite projects***
-> - `GET` `/api/profile/project/`  ***show a list of enrolling projects***
 > - `POST` `/api/profile/updatePassword/`   ***update user password***
 
 > **Project**
